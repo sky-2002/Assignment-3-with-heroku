@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html id="logout_reference">
+    <head>
+        <title>
+            Dashboard
+        </title>
+        <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap.min.css') }}" type="text/css">
+        <script src="{{ url_for('static',filename='jquery-3.5.1.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='utility.js') }}"></script>
+        <script src="{{ url_for('static',filename='u2.js') }}"></script>
+    </head>
+
+    <body style="background-color:gainsboro">
+    <div class="container">
+      <div class="row" id="window">
+
+        <div class="col-lg-2" id="navigation" style=" border: 1px;border-color: black;border-style: solid;margin-bottom: 2px; background-color: burlywood;">
+            <form style="margin-top: 40px; ">
+                <input type="button" onclick="submitData_new('/image_form/{{username}}','messages')" value="New message">
+            </form>
+            <form style="margin-top: 70px; ">
+                <input type="button" onclick="submitData_new('/view_inbox/{{username}}','messages')" value="Inbox">
+            </form>
+            <form style="margin-top: 70px; ">
+                <input type="button" onclick="submitData_new('/view_sent/{{username}}','messages')" value="View sent">
+            </form>
+            <form style="margin-top: 70px; ">
+                <input type="button" onclick="submitData_new('/clear_sent/{{username}}','messages')" value="Clear sent">
+            </form>
+            <form style="margin-top: 70px; ">
+                <input type="button" onclick="submitData_new('/clear_inbox/{{username}}','messages')" value="Clear inbox">
+            </form>
+            <form style="margin-top: 70px; margin-bottom: 20px;">
+                <input type="button" onclick="submitData_new('/stats/{{username}}','messages')" value="View statistics">
+            </form>
+        </div>
+        <div class="col-lg-10" id="message_and_other">
+            <div class="row" style="background-color: brown; color: aliceblue;margin-bottom: 20px;">
+            <div class="col-lg-6" id="welcome">
+                 <h2>Welcome {{username}}</h2>
+            </div>
+            <div class="col-lg-6 " id="logout_and_del_acc" style="margin-bottom: 50px;">
+                <div class="row">
+                    <div class="col-lg-6" id="logout">
+                        <form style="margin-top: 20px;color: black;">
+                            <input type="button" onclick="submitData_new('/logout_process/{{username}}','logout_reference')" value="Logout">
+                        </form>
+                    </div>
+                    <div class="col-lg-6" id="del_acc">
+                        <form style="margin-top: 20px;color: black;">
+                            <input type="button" onclick="submitData_new('/delete_account/{{username}}','logout_reference')" value="Delete account">
+                        </form>
+                    </div>
+                </div>
+            </div>
+                </div>
+            <div id="messages">
+
+            </div>
+        </div>
+      </div>
+    </div>
+
+        
+    </body>
+</html>

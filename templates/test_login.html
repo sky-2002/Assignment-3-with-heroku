@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Login Page</title>
+        <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap.min.css') }}" type="text/css">
+        <script src="{{ url_for('static',filename='jquery-3.5.1.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='utility.js') }}"></script>
+        <script src="{{ url_for('static',filename='u2.js') }}"></script>
+    </head>
+    <body style="background-image: url('/static/home.jfif'); background-repeat: no-repeat; background-size: cover;">
+        <div class="row" style="background-color:black; height:100px ;color: white; align-items: center; width: 1200px; padding-left: 100px; padding-top: 3px;">
+            <div class="col-lg-4 " >
+                <a href="{{url_for('home')}}"><h1>The Messaging App</h1></a>
+            </div>
+            <div class=' col-lg-offset-4 col-lg-2' style="padding-top: 20px; color:red; font-size: medium; ">
+            <a href="{{url_for('login')}}"><button type="submit" name="login" >Login</button></a>
+            </div>
+            <div class='  col-lg-2' style="padding-top: 20px; color: red; font-size: medium;">
+                <a href="{{url_for('signup')}}"><button  type="submit" name="login">Sign Up</button></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-offset-4 col-lg-4" style="background-color: bisque; margin-top: 100px; padding-top: 20px; padding-bottom: 20px;">
+                <h1 style="background-color: brown; color: aliceblue; align-items: center;">Login</h1>
+
+                <form name='login_form' method="POST">
+                    <label>Username: </label><input type="text" name="Username"> <br> <br>
+                    <label>Password: </label><input type="password" name="Password"><br> <br>
+                    <input type="button" value="Login" onclick="submitData_new('/login_process','output_div_fancy')">
+                </form>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-offset-4 col-lg-4" align="left" style="float:left; margin-top: 15px; padding-top: 50px;" id="output_div_fancy">
+                        
+            </div>
+        </div>	
+    </body>
+</html>

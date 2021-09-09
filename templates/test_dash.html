@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html id="logout_reference">
+    <head>
+        <title>
+            Dashboard
+        </title>
+        <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap.min.css') }}" type="text/css">
+        <script src="{{ url_for('static',filename='jquery-3.5.1.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='utility.js') }}"></script>
+        <script src="{{ url_for('static',filename='u2.js') }}"></script>
+    </head>
+
+    <body style="background-color: lightgoldenrodyellow;">
+
+        <div class="row" id="upper" style="border: 1px;border-color: black;border-style: solid;">
+
+            <div class="col-lg-6" id="welcome">
+                <h1 style="color: coral;">Dashboard</h1><br>
+                <h2 style="margin: 5px; color: blueviolet;">Welcome {{username}}</h2><br>
+            </div>
+
+            <div class="col-lg-6" id="message_confirm_and_logout" style="border: 1px;border-color: black;border-style: solid;">
+
+                <div class="row" id="logout">
+                    <form>
+                        <input type="button" onclick="submitData_new('/logout_process/{{username}}','logout_reference')" value="Logout">
+                    </form>
+                </div>
+                <div  id="output_div">
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row" id="lower" style="border: 1px;border-color: black;border-style: solid;">
+
+            <div class="col-lg-12" id="inbox_and_sent_buttons">
+                <div class="row">
+
+                    <div class="col-lg-3" id="inbox_button" style="padding-left: 80px;">
+                        <form>
+                            <input type="button" onclick="submitData_new('/view_inbox/{{username}}','inbox')" value="Inbox">
+                        </form>
+                    </div>
+                    
+                    <div class="col-lg-3" id="sent_button" style="padding-left: 80px;">
+                        <form>
+                            <input type="button" onclick="submitData_new('/view_sent/{{username}}','sent')" value="Sent">
+                        </form>
+                    </div>
+ 
+                    <div class="col-lg-1" id="clear_inbox">
+                        <form>
+                            <input type="button" onclick="submitData_new('/clear_inbox/{{username}}','inbox')" value="Clear inbox">
+                        </form>
+                    </div>
+
+                    <div class="col-lg-1" id="clear_sent">
+                        <form>
+                            <input type="button" onclick="submitData_new('/clear_sent/{{username}}','sent')" value="Clear sent">
+                        </form>
+                    </div>
+
+                    <div class="col-lg-2" id="delete_account">
+                        <form>
+                            <input type="button" onclick="submitData_new('/delete_account/{{username}}','logout_reference')" value="Delete account">
+                        </form>
+                    </div>
+                    <div class="col-lg-2 " id="message_area">
+                        <a href="{{url_for('image_form',username=username)}}"><input type="button" value="New messsage"></a>
+                    </div>
+                    <a href="{{url_for('stats',username=username)}}">Statistics</a>
+                </div>
+                
+            </div>
+
+            
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-6" id="inbox_and_sent_messages">
+                <div class="col-lg-6" id="inbox" style="border: 1px;border-color: black;border-style: solid;padding: 5px; ">
+
+                </div>
+                <div class="col-lg-6" id="sent" style="border: 1px;border-color: black;border-style: solid;padding: 5px;">
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

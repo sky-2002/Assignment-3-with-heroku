@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap.min.css') }}" type="text/css">
+        <script src="{{ url_for('static',filename='jquery-3.5.1.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='utility.js') }}"></script>
+        <script src="{{ url_for('static',filename='u2.js') }}"></script>
+        <script>
+            function myFunction() {
+              alert("Hello\nHow are you?");
+              return false;
+            }
+            </script>
+    </head>
+    <body>
+        <div id="online">
+            
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-4" style="margin-top: 20px; margin-bottom: 20px; border: 2px; border-style: solid; border-color: black;">
+
+                <form onsubmit="myFunction()" method="POST" action="{{url_for('image_process',username=username)}}" enctype="multipart/form-data"  >
+                    <label>To: </label><br><input type="text" name="to"><br><br>
+                    <label>Subject: </label><br><input type="text" name="subject"><br><br>
+                    <label>Message: </label><br><textarea rows="5" cols="35" name="message"></textarea><br><br>
+                    <label>Upload file:</label><input type="file" name="file" id="uploaded_file"><br><br>
+                    <input type="submit" value="Send"  style="margin-bottom: 10px;"/>
+                </form>
+            </div>
+            
+        </div>
+        <div id="confirmation">
+           <div class="row">
+               <div class="col-lg-4 col-lg-offset-4" id="output_div">
+
+               </div>
+           </div>
+        </div>
+    </body>
+</html>

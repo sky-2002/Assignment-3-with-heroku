@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Stats
+        </title>
+        <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap.min.css') }}" type="text/css">
+        <script src="{{ url_for('static',filename='jquery-3.5.1.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='utility.js') }}"></script>
+        <script src="{{ url_for('static',filename='u2.js') }}"></script>
+    </head>
+    <body>
+    <div class="container" style="background-color: bisque; width: 500px;">
+        <div id="received" style="background-color: greenyellow; color: brown;">
+            <h1>Received messages: {{received}}</h1>
+        </div>
+        <div id="sent" style="background-color: darksalmon; color: beige;">
+            <h1>Sent messages: {{sent}}</h1>
+        </div>
+        <div id="active" style="background-color: cyan; color: blueviolet;">
+            <h1>Users currently online: {{active}}</h1>
+        </div>
+        
+        <div id="friends_online" style="margin-top: 50px;">
+            {%if friends|length==0:%}
+            <h3>Oops !! None of your friends are currently online ..</h3>
+            
+            {%elif friends|length!=0:%}
+            <h3>Your friends who are currently online:</h3><br><br>
+            {%for frd in friends.keys():%}
+                {%if friends[frd]==True:%}
+                   <h4 style="color: cornflowerblue;"><b>{{frd}}</b></h4><br><br>
+                {%endif%}
+            {%endfor%}
+            {%endif%}
+        </div>
+    </div>
+    </body>
+</html>
